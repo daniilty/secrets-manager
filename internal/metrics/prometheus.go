@@ -1,10 +1,10 @@
-package monitoring
+package metrics
 
 import "github.com/prometheus/client_golang/prometheus"
 
 const (
 	namespace = "infro"
-	subsystem = "secrets-manager"
+	subsystem = "secretsmanager"
 )
 
 func init() {
@@ -29,7 +29,7 @@ var TotalErrReqs = prometheus.NewCounterVec(prometheus.CounterOpts{
 	Subsystem: subsystem,
 	Name:      "request_errors_total",
 	Help:      "Total amount of error requests.",
-}, []string{"method", "error_code", "status"})
+}, []string{"method", "error_code"})
 
 // ReqDurationSeconds - client request duration(seconds).
 var ReqDurationSeconds = prometheus.NewHistogramVec(prometheus.HistogramOpts{
